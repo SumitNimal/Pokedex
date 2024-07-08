@@ -1,7 +1,7 @@
 const URL = 'https://pokeapi.co/api/v2/pokemon?limit=';
 const imageURL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/`;
 //
-const max_Pokemon = 400;
+const max_Pokemon = 600;
 let pokemonArray = [];
 
 
@@ -51,3 +51,4 @@ function searchedPokemonsByName(name){
         }
     }
 }
+//
