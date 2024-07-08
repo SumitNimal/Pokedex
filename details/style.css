@@ -9,6 +9,7 @@ body{
     justify-content: center;
 }
 .pokemon-container {
+    width: 70%;
     border-radius: 20px;
     box-shadow: 0 0 20px black;
 }
@@ -74,16 +75,18 @@ body{
     gap: 20px;
     justify-content: space-between;
     align-items: center;
+    width: 90%;
 }
 .div-bar{
     height: 14px;
-    width: 600px;
+    width: 80%;
     border-radius: 8px;
     border: solid 1px black;
 }
 
 .stats-div{
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -120,7 +123,7 @@ body{
 }
 
 .all-info{
-    width: 800px;
+    width: 100%;
     gap: 20px;
     padding-bottom: 10px;
     border-radius: 10px;
@@ -178,14 +181,21 @@ body{
     flex-direction: column;
     align-items: center;
     position: relative;
-    width: 780px;
+    width: 100%;
     border-radius: 10px;
     padding: 10px;
 }
 .pokeball-image{
     position: absolute;
     opacity: 0.5;
+    pointer-events: none;
     top: 70px;
     right: 30px;
     height: 150px;
+}
+
+@media (width < 630px){
+    .pokemon-container{
+        width: 100%;
+    }
 }
