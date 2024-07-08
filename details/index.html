@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
+    <link rel="icon" href="icon.png">
+
+</head>
+
+<body>
+    <div class="pokemon-container">
+        <div class="head">
+            <img src="pokeball.png" class="pokeball-image">
+            <div class="name-and-id"></div>
+            <div class="image-and-nav">
+                <button class="nav-arrow">
+                    <img src="prevPokemon.svg">
+                </button>
+                <img src="" class="pokemon-image">
+                <button class="nav-arrow">
+                    <img src="nextPokemon.svg">
+                </button>
+            </div>
+        </div>
+
+        <div class="all-info">
+            <div class="info">
+                <div class="pokemon-type-div"> </div>
+
+                <div class="about">
+                    <p class="about-text">&Diamond;&nbsp;ABOUT&nbsp;&Diamond;</p>
+                    <div class="whm">
+                        <div class="whm-div">
+                            <img src="weight.svg">
+                            <p class="whm-name" id="weight"></p>
+                        </div>
+                        <div class="whm-div">
+                            <img src="height.svg">
+                            <p class="whm-name" id="height"></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="stats-div">
+                <p class="base-stat-text">Base Stats</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
