@@ -5,6 +5,7 @@ const id = params.get(`id`);
 const pokemonId = parseInt(id,10);
 const pokemonContainer = document.querySelector('.pokemon-container');
 
+
 async function fetchPokemon(pokemonId){
     let response = await fetch(`${url}${pokemonId}`);
     if(!response.ok){
@@ -38,7 +39,6 @@ const pokemonColorWithType = {
 
 
 fetchPokemon(pokemonId).then((data) => {
-    console.log(data);
     document.querySelector('.name-and-id').innerHTML = `
     <img src="back.svg">
     <p class="pokemon-name">${data.name.toUpperCase()}</p>
@@ -100,4 +100,5 @@ fetchPokemon(pokemonId).then((data) => {
     pokemonContainer.style.backgroundImage = `linear-gradient(to bottom,
     ${pokemonColorWithType[data.types[0].type.name]} 40%, 
     rgb(248, 246, 246) 40%)`;
+    pokemonContainer.style.display = 'block';
 });
