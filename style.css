@@ -89,7 +89,7 @@
 }
 
 .item:hover {
-    transform: scale(107%);
+    transform: scale(105%);
 }
 
 .item-box::-webkit-scrollbar {
@@ -112,6 +112,14 @@
 
 @media (max-width: 630px){
     .item-box{
-        grid-template-columns: repeat(3, 150px);
+        grid-template-columns: repeat(3, 120px);
+        grid-auto-rows: 120px;
+    }
+    .pokemon-image{
+        height: 50px;
+        width: 50px;
+    }
+    .pokemon-name{
+        font-size: 12px;
     }
 }
