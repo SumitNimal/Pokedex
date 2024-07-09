@@ -123,7 +123,7 @@ prevButton.addEventListener('click',() => {
         });
         setTimeout(() => {
             prevButton.style.pointerEvents = 'auto';
-        },700);
+        },500);
     }
 });
 
@@ -138,6 +138,6 @@ nextButton.addEventListener('click',() => {
         });
         setTimeout(() => {
             nextButton.style.pointerEvents = 'auto';
-        },700);
+        },500);
     }
 });
