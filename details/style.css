@@ -13,7 +13,7 @@ body{
     width: 50%;
     border-radius: 20px;
     height: 780px;
-    box-shadow: 0 0 20px black;
+    border: solid 2px black;
     display: flex;
     flex-direction: column;
     justify-content: center;
