@@ -1,9 +1,8 @@
 
 const url = 'https://pokeapi.co/api/v2/pokemon/';
-// const params = new URLSearchParams(window.location.search);
-// const id = params.get(`id`);
-// const pokemonId = parseInt(id,10);
-let pokemonId = 6;
+const params = new URLSearchParams(window.location.search);
+const id = params.get(`id`);
+const pokemonId = parseInt(id,10);
 const pokemonContainer = document.querySelector('.pokemon-container');
 
 
