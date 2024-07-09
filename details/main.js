@@ -120,10 +120,11 @@ prevButton.addEventListener('click',() => {
         prevButton.style.pointerEvents = 'none';
         fetchPokemon(pokemonId).then((data) => {
             showPokemon(data);
+            setTimeout(() => {
+                prevButton.style.pointerEvents = 'auto';
+            },500);
         });
-        setTimeout(() => {
-            prevButton.style.pointerEvents = 'auto';
-        },500);
+        
     }
 });
 
@@ -135,9 +136,9 @@ nextButton.addEventListener('click',() => {
         nextButton.style.pointerEvents = 'none';
         fetchPokemon(pokemonId).then((data) => {
             showPokemon(data);
+            setTimeout(() => {
+                nextButton.style.pointerEvents = 'auto';
+            },500);
         });
-        setTimeout(() => {
-            nextButton.style.pointerEvents = 'auto';
-        },500);
     }
 });
