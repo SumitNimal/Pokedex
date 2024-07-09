@@ -51,4 +51,3 @@ function searchedPokemonsByName(name){
         }
     }
 }
-//
