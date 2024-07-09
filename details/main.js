@@ -2,7 +2,7 @@
 const url = 'https://pokeapi.co/api/v2/pokemon/';
 const params = new URLSearchParams(window.location.search);
 const id = params.get(`id`);
-const pokemonId = parseInt(id,10);
+let pokemonId = parseInt(id,10);
 const pokemonContainer = document.querySelector('.pokemon-container');
 
 
@@ -123,7 +123,7 @@ prevButton.addEventListener('click',() => {
         });
         setTimeout(() => {
             prevButton.style.pointerEvents = 'auto';
-        },1000);
+        },700);
     }
 });
 
@@ -138,6 +138,6 @@ nextButton.addEventListener('click',() => {
         });
         setTimeout(() => {
             nextButton.style.pointerEvents = 'auto';
-        },1000);
+        },700);
     }
 });
