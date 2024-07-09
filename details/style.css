@@ -212,7 +212,7 @@ body{
 @media (width >= 426px) and (width < 769px){
     .pokemon-container{
         width: 100vw;
-        height: calc(100vw*4/5);
+        height: calc(100vw*16/9);
     }
     .pokeball-image{
         height: 100px;
