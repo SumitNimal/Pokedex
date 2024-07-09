@@ -3,8 +3,8 @@ const url = 'https://pokeapi.co/api/v2/pokemon/';
 const params = new URLSearchParams(window.location.search);
 const id = params.get(`id`);
 let pokemonId = parseInt(id,10);
+// let pokemonId = 6;
 const pokemonContainer = document.querySelector('.pokemon-container');
-
 
 async function fetchPokemon(pokemonId){
     let response = await fetch(`${url}${pokemonId}`);
@@ -48,8 +48,10 @@ function showPokemon(data){
     <p class="pokemon-name">${data.name.toUpperCase()}</p>
     <p class="pokemon-id">#${data.id}</p>
     `;
+
+    console.log(data.sprites.other.dream_world.front_default);
     document.querySelector('.pokemon-image').src = `
-    https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg
+    ${data.sprites.other.dream_world.front_default}
     `;
     //
     document.querySelector('.pokemon-type-div').innerHTML = '';
@@ -107,8 +109,8 @@ function showPokemon(data){
 
     //changing pokemon container
     pokemonContainer.style.backgroundImage = `linear-gradient(to bottom,
-    ${pokemonColorWithType[data.types[0].type.name]} 40%, 
-    rgb(248, 246, 246) 40%)`;
+    ${pokemonColorWithType[data.types[0].type.name]} 35%, 
+    rgb(230, 230, 230) 35%)`;
     pokemonContainer.style.display = 'flex';
 }
 
@@ -120,11 +122,10 @@ prevButton.addEventListener('click',() => {
         prevButton.style.pointerEvents = 'none';
         fetchPokemon(pokemonId).then((data) => {
             showPokemon(data);
-            setTimeout(() => {
-                prevButton.style.pointerEvents = 'auto';
-            },500);
         });
-        
+        setTimeout(() => {
+            prevButton.style.pointerEvents = 'auto';
+        },700);
     }
 });
 
@@ -136,9 +137,9 @@ nextButton.addEventListener('click',() => {
         nextButton.style.pointerEvents = 'none';
         fetchPokemon(pokemonId).then((data) => {
             showPokemon(data);
-            setTimeout(() => {
-                nextButton.style.pointerEvents = 'auto';
-            },500);
         });
+        setTimeout(() => {
+            nextButton.style.pointerEvents = 'auto';
+        },700);
     }
 });
