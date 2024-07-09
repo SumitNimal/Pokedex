@@ -1,8 +1,9 @@
 
 const url = 'https://pokeapi.co/api/v2/pokemon/';
-const params = new URLSearchParams(window.location.search);
-const id = params.get(`id`);
-const pokemonId = parseInt(id,10);
+// const params = new URLSearchParams(window.location.search);
+// const id = params.get(`id`);
+// const pokemonId = parseInt(id,10);
+let pokemonId = 6;
 const pokemonContainer = document.querySelector('.pokemon-container');
 
 
@@ -39,6 +40,10 @@ const pokemonColorWithType = {
 
 
 fetchPokemon(pokemonId).then((data) => {
+    showPokemon(data);
+});
+
+function showPokemon(data){
     document.querySelector('.name-and-id').innerHTML = `
     <img src="back.svg">
     <p class="pokemon-name">${data.name.toUpperCase()}</p>
@@ -47,19 +52,24 @@ fetchPokemon(pokemonId).then((data) => {
     document.querySelector('.pokemon-image').src = `
     https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg
     `;
-    console.log(Array.isArray(data.types));
+    //
+    document.querySelector('.pokemon-type-div').innerHTML = '';
+    
     for(let i = 0 ; i < data.types.length ; i++){
         let typePara = document.createElement('p');
         typePara.innerText  = data.types[i].type.name.toUpperCase();
         typePara.classList.add('pokemon-type');
         document.querySelector('.pokemon-type-div').appendChild(typePara);
-        console.log(typePara);
     }
         //stat creation
     maxStatArr = [255,170,250,145,250,145];
     statArr = ['HP','ATK','DEF','SATK','SDEF','SPD'];
     //
     const statDivParent = document.querySelector('.stats-div');
+    
+    //
+    statDivParent.innerHTML = '';
+    
     for(let i=0;i<data.stats.length;i++){
         let statDiv = document.createElement('div');
         statDiv.classList.add('single-stat-div');
@@ -100,5 +110,35 @@ fetchPokemon(pokemonId).then((data) => {
     pokemonContainer.style.backgroundImage = `linear-gradient(to bottom,
     ${pokemonColorWithType[data.types[0].type.name]} 40%, 
     rgb(248, 246, 246) 40%)`;
-    pokemonContainer.style.display = 'block';
+    pokemonContainer.style.display = 'flex';
+}
+
+const prevButton = document.querySelector('#prev');
+prevButton.addEventListener('click',() => {
+    if(pokemonId > 1){
+        pokemonId--;
+        console.log(pokemonId);
+        prevButton.style.pointerEvents = 'none';
+        fetchPokemon(pokemonId).then((data) => {
+            showPokemon(data);
+        });
+        setTimeout(() => {
+            prevButton.style.pointerEvents = 'auto';
+        },1000);
+    }
+});
+
+const nextButton = document.querySelector('#next');
+nextButton.addEventListener('click',() => {
+    if(pokemonId < 600){
+        pokemonId++;
+        console.log(pokemonId);
+        nextButton.style.pointerEvents = 'none';
+        fetchPokemon(pokemonId).then((data) => {
+            showPokemon(data);
+        });
+        setTimeout(() => {
+            nextButton.style.pointerEvents = 'auto';
+        },1000);
+    }
 });
