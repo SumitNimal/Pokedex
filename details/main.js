@@ -110,7 +110,7 @@ function showPokemon(data){
     //changing pokemon container
     pokemonContainer.style.backgroundImage = `linear-gradient(to bottom,
     ${pokemonColorWithType[data.types[0].type.name]} 35%, 
-    rgb(230, 230, 230) 35%)`;
+    rgb(255, 255, 255) 35%)`;
     pokemonContainer.style.display = 'flex';
 }
 
