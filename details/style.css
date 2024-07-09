@@ -7,6 +7,7 @@
 body{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .pokemon-container {
     width: 50%;
@@ -18,35 +19,28 @@ body{
     justify-content: center;
     align-items: center;
     cursor: default;
+    padding: 20px;
 }
 
 .pokemon-image {
     width : 320px;
     height: 320px;
 }
-
-.nav-arrow {
-    border: none;
-    padding: 5px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition:  all 0.25s;
-}
 .nav-arrow:hover {
-    transform: scale(1.5);
+    transform: scale(1.25);
 }
 .image-and-nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     padding: 5px;
     position: relative;
 }
 
 .pokemon-type-div{
     display: flex;
-    gap: 40px;
+    gap: 30px;
     justify-content: center;
     padding: 10px;
 }
@@ -66,7 +60,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 .info{
     display: flex;
@@ -74,11 +68,11 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    gap: 5px;
+    gap: 10px;
 }
 .single-stat-div{
     display: flex;
-    gap: 20px;
+    gap: 10px;
     justify-content: space-between;
     align-items: center;
     width: 90%;
@@ -96,22 +90,17 @@ body{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 7px;
+    gap: 10px;
 }
 
-.parameters-value{
+.parameters-value,.parameters-name{
     display: flex;
-    gap: 100px;
-}
-.parameters-name{
-    display: flex;
-    gap: 95px;
 }
 
 .whm-div{
     display: flex;
     align-items: center;
-    background-color: blueviolet;
+    background-color: rgb(9, 14, 14);
     font-size: 18px;
     font-weight: 600;
     padding: 4px 8px;
@@ -125,7 +114,7 @@ body{
     align-items: center;
     gap: 20px;
     text-align: center;
-    
+    color: whitesmoke;
 }
 
 .all-info{
@@ -138,7 +127,7 @@ body{
 .about-text{
     font-size: 20px;
     font-weight: 600;
-    color: rgb(127, 127, 127);
+    color: rgb(9, 9, 9);
 }
 .extra-info{
     font-size: 16px;
@@ -201,27 +190,15 @@ body{
 }
 
 
-@media (width <= 600px){
+@media (width < 426px){
     .pokemon-container{
-        width: 540px;
-        height: 960px;
-    }
-    .pokeball-image{
-        height: 80px;
-    }
-    .pokemon-image {
-        width : 150px;
-        height: 150px;
-    }
-}
-
-@media (width > 600px) and (width <=768px){
-    .pokemon-container{
-        width: 600px;
-        height: 1000px;
+        width: 100vw;
+        height: calc(100vw*16/9);
     }
     .pokeball-image{
         height: 100px;
+        top: 24px;
+        right: 0px;
     }
     .pokemon-image {
         width : 180px;
@@ -229,16 +206,37 @@ body{
     }
 }
 
-@media (width > 768px) and (width <=992px){
+.nav-arrow{
+    cursor: pointer;
+}
+@media (width >= 426px) and (width < 769px){
     .pokemon-container{
-        width: 768px;
-        height: 768px;
+        width: 100vw;
+        height: calc(100vw*4/5);
     }
     .pokeball-image{
         height: 100px;
+        top: 24px;
+        right: 0px;
     }
     .pokemon-image {
-        width : 220px;
-        height: 220px;
+        width : 200px;
+        height: 200px;
+    }
+}
+
+@media (width >= 769px) and (width < 1025px){
+    .pokemon-container{
+        width: 38vw;
+        height: calc(33vw*16/9);
+    }
+    .pokeball-image{
+        height: 100px;
+        top: 24px;
+        right: 0px;
+    }
+    .pokemon-image {
+        width : 200px;
+        height: 200px;
     }
 }
