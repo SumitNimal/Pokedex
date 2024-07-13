@@ -1,8 +1,6 @@
 const URL = 'https://pokeapi.co/api/v2/pokemon?limit=';
-
 const max_Pokemon = 300;
 let pokemonArray = [];
-
 const searchBarELement = document.querySelector('.search-bar');
 
 async function fetchAll(){
@@ -20,12 +18,15 @@ async function fetchAll(){
 
 function searchedPokemonsByName(name){
     name = name.toLowerCase();
-    document.querySelector('.item-box').innerHTML = '';
+    const pokemonGrid = document.querySelector('.item-box');
+    pokemonGrid.innerHTML = '';
+    let flag = 0;
     for(let i = 0;i< max_Pokemon ;i++){
         if(pokemonArray[i].name.startsWith(name)){
             // pokemonId = i+1
             //styling item/pokemon
             let pokemonId = i + 1;
+            if(!flag) flag = 1;
             const Item = document.createElement('div');
             Item.innerHTML = `
             <img src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg" class = "pokemon-image">
@@ -40,8 +41,12 @@ function searchedPokemonsByName(name){
             });
 
             // appending item in box
-            document.querySelector('.item-box').appendChild(Item);
+            pokemonGrid.appendChild(Item);
         }
+    }
+    //pokemon not found
+    if(!flag){
+        pokemonGrid.innerHTML = '<p class="no-pokemon">Pokemon not found!</p>';
     }
 }
 fetchAll();
