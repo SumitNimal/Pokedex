@@ -68,7 +68,17 @@ body{
     height: 610px;
     padding: 10px;
     background-color: rgb(255, 255, 255);
+    position: relative;
 }
+.no-pokemon{
+    position: absolute;
+    font-size: 20px;
+    width: 30%;
+    left: 35%;
+    top: 100px;
+    text-align: center;
+}
+
 .item{
     background-image: linear-gradient(to bottom, rgb(248, 244, 244) 49.99%, rgb(178, 178, 178) 50%);
     border-radius: 10px;
@@ -157,6 +167,9 @@ body{
     .search-bar{
         width: 300px;
     }
+    .pokemon-id{
+        font-size: 10px;
+    }
 }
 
 
@@ -175,6 +188,9 @@ body{
     }
     .pokemon-name{
         font-size: 12px;
+    }
+    .pokemon-id{
+        font-size: 10px;
     }
 }
 
