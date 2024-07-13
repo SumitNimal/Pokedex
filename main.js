@@ -37,7 +37,7 @@ function searchedPokemonsByName(name){
 
             //listening pokemon/Item
             Item.addEventListener('click',() => {
-                window.location.href = `./details/index.html?id=${pokemonId}`
+                window.location.href = `/details/index.html?id=${pokemonId}`
             });
 
             // appending item in box
