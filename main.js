@@ -1,5 +1,5 @@
 const URL = 'https://pokeapi.co/api/v2/pokemon?limit=';
-const max_Pokemon = 300;
+const max_Pokemon = 500;
 let pokemonArray = [];
 const searchBarELement = document.querySelector('.search-bar');
 
