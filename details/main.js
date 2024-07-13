@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         //image , name and id 
         pokemonNameElement.innerText = firstLetterCapital(data.name);
-        pokemonImageElement.src = `./Pokemon_Images/${id}.svg`;
+        pokemonImageElement.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
         pokemonIdElement.innerText = `#${id}`;
     
         //types
@@ -90,8 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchPokemon(newId).then((data) => {
             displayPokemon(newId,data);
             if(data){
-                // changed/IMPT
-                window.history.pushState({}, "", `index.html?id=${newId}`); 
+                window.history.pushState({}, "", `./details/index.html?id=${newId}`); 
                 id = newId;
             }
         })
