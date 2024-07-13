@@ -4,14 +4,16 @@
     font-family: "Stylish", serif;
     font-weight: 800;
 }
+
+body{
+    background-color: red;
+}
 .container{
-    background-color: rgb(255, 28, 28);
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
-    box-shadow: 0 0 10px black;
     cursor: default;
 }
 
@@ -19,7 +21,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 14.5vh;
+    height: 80px;
     width: 100%;
     gap: 10px;
 }
@@ -63,9 +65,8 @@
     overflow-y: auto;
     gap: 10px;
     border-radius: 10px;
-    height: 80vh;
+    height: 610px;
     padding: 10px;
-    box-shadow: 0 0 10px black;
     background-color: rgb(255, 255, 255);
 }
 .item{
@@ -76,8 +77,7 @@
     justify-content: space-evenly;
     align-items: center;
     padding: 10px;
-    border: 2px solid rgb(5, 54, 247);
-    box-shadow: 0 0 5px rgb(0, 8, 255);
+    box-shadow: 0 0 5px rgb(0, 0, 0);
     position: relative;
     transition: all 0.3s;
 }
@@ -111,10 +111,12 @@
     right: 10px;
 }
 
-@media (max-width: 630px){
+
+@media (max-width: 320px){
     .item-box{
-        grid-template-columns: repeat(3, 120px);
+        grid-template-columns: repeat(2, 120px);
         grid-auto-rows: 120px;
+        height: calc(100vh-100px);
     }
     .pokemon-image{
         height: 50px;
@@ -122,5 +124,46 @@
     }
     .pokemon-name{
         font-size: 12px;
+    }
+    .search-bar{
+        width: 75%;
+    }
+}
+@media (max-width: 426px) and (min-width: 375px){
+    .item-box{
+        grid-template-columns: repeat(3, 100px);
+        grid-auto-rows: 100px;
+        height: calc(100vh-100px);
+    }
+    .pokemon-image{
+        height: 46px;
+        width: 44px;
+    }
+    .pokemon-name{
+        font-size: 12px;
+    }
+    .search-bar{
+        width: 75%;
+    }
+}
+
+
+@media (max-width: 769px) and (min-width: 700px){
+    .item-box{
+        grid-template-columns: repeat(4, 150px);
+        grid-auto-rows: 150px;
+        height: calc(100vh-100px);
+    }
+
+}
+
+@media (max-width: 1025px) and (min-width: 769px){
+    .item-box{
+        grid-template-columns: repeat(6, 150px);
+        grid-auto-rows: 150px;
+        height: calc(100vh-100px);
+    }
+    .search-bar{
+        width: 90%;
     }
 }
