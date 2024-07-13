@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchPokemon(newId).then((data) => {
             displayPokemon(newId,data);
             if(data){
-                window.history.pushState({}, "", `/details/index.html?id=${newId}`); 
+                //window.history.pushState({}, "", `/details/index.html?id=${newId}`); 
                 id = newId;
             }
         })
