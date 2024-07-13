@@ -1,241 +1,165 @@
-*{
+
+* {
     margin: 0;
     padding: 0;
-    font-family: "Stylish", serif;
-    text-shadow: 0px 0px 1px black;
+    transition: all 0.25s;
 }
-body{
+
+body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    font-size: 15px;
+    font-family: "Stylish", serif;
+    color: whitesmoke;
+    cursor: default;
 }
-.pokemon-container {
-    width: 50%;
-    height: 780px;
-    border: none;
+
+.container {
+    width: 400px;
     display: flex;
+    flex-direction: column;
+    font-weight: 800;
+    height: 725px;
+}
+
+.head-container{
+    height: 300px;
+    display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    cursor: default;
-    padding: 10px;
-}
-
-.pokemon-image {
-    width : 320px;
-    height: 320px;
-}
-.nav-arrow:hover {
-    transform: scale(1.25);
-}
-.image-and-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 5px;
+    gap: 120px;
     position: relative;
 }
+#pokemon-image {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 75px;
+    top: 100px;
+}
 
-.pokemon-type-div{
+.name-and-back-div {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.pokemon-name {
+    font-size: 40px;
+}
+#pokemon-id{
+    font-size: 20px;
+}
+.image-and-navigation-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+}
+
+.navigation-button,
+.back-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.navigation-button:hover,
+.back-image:hover {
+    box-shadow: 0 0 10px black;
+}
+
+.pokemon-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 40px 0px 20px 0px;
+    box-shadow: 0px 0px 10px black;
+    background-color: rgb(225, 225, 225);
+    height: 400px;
     gap: 30px;
-    justify-content: center;
-    padding: 10px;
+    border-radius: 15px;
 }
 
-.pokemon-type{
-    padding: 4px 8px;
-    color: whitesmoke;
-    background-color:  rgb(255, 132, 0);
-    border-radius: 10px;
+.pokemon-type-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     font-size: 24px;
-    font-weight: 600;
-    box-shadow: 0px 0px 10px black;
 }
 
-.about{
+.pokemon-type {
+    padding: 5px 15px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
+
+.body-measure-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-}
-.info{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    gap: 10px;
-}
-.single-stat-div{
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-}
-.div-bar{
-    height: 14px;
-    width: 80%;
-    border-radius: 8px;
-    border: solid 1px black;
-}
-
-.stats-div{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-}
-
-.parameters-value,.parameters-name{
-    display: flex;
-}
-
-.whm-div{
-    display: flex;
-    align-items: center;
-    background-color: rgb(9, 14, 14);
+    gap: 24px;
     font-size: 18px;
-    font-weight: 600;
-    padding: 4px 8px;
-    border-radius: 10px;
+}
+
+.body-measure-div {
+    background-color: rgb(86, 86, 86);
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+    border-radius: 20px;
     box-shadow: 0px 0px 10px black;
 }
 
-.whm{
+.all-stats-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 20px;
-    text-align: center;
-    color: whitesmoke;
-}
-
-.all-info{
+    gap: 10px;
+    font-size: 18px;
+    color: rgb(112, 110, 110);
     width: 100%;
-    gap: 20px;
-    padding-bottom: 10px;
-    border-radius: 10px;
 }
 
-.about-text{
-    font-size: 20px;
-    font-weight: 600;
-    color: rgb(9, 9, 9);
-}
-.extra-info{
-    font-size: 16px;
-    color: rgb(127, 127, 127);
-}
-.base-stat-text{
-    font-size: 20px;
-    font-weight: 600;
-    color: rgb(4, 1, 1);
-}
-.stat-name{
-    font-weight: 800;
+.single-stat-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 85%;
 }
 
-.stat-strength{
-    font-weight: 800;
+.stat-bar-div {
+    width: 60%;
+    height: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px black;
 }
 
-.stat-name-div{
-    padding-right: 5px;
-    width: 50px;
+.stat-name-div {
+    width: 10%;
     display: flex;
     justify-content: flex-end;
-    border-width: 0 2px 0 0;
-    border-style: solid;
 }
 
-.name-and-id{
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-}
-.pokemon-name{
-    font-size: 40px;
-    font-weight: 800;
-    color: whitesmoke;
-}
-.pokemon-id{
-    font-size: 20px;
-    font-weight: 800;
-    color: whitesmoke;
-}
-.head{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    border-radius: 10px;
-    padding: 10px;
-}
-.pokeball-image{
-    position: absolute;
-    opacity: 0.5;
-    pointer-events: none;
-    top: 70px;
-    right: 30px;
-    height: 150px;
-}
-
-
-@media (width < 426px){
-    .pokemon-container{
-        width: 100vw;
-        height: calc(100vw*16/9);
+@media (max-width: 425px) {
+    .container{
+        width: 90%;
     }
-    .pokeball-image{
-        height: 100px;
-        top: 24px;
-        right: 0px;
-    }
-    .pokemon-image {
-        width : 180px;
-        height: 180px;
-    }
-}
-
-.nav-arrow{
-    cursor: pointer;
-}
-@media (width >= 426px) and (width < 769px){
-    .pokemon-container{
-        width: 100vw;
-        height: calc(100vw*16/9);
-    }
-    .pokeball-image{
-        height: 100px;
-        top: 24px;
-        right: 0px;
-    }
-    .pokemon-image {
-        width : 200px;
-        height: 200px;
-    }
-}
-
-@media (width >= 769px) and (width < 1025px){
-    .pokemon-container{
-        width: 38vw;
-        height: calc(33vw*16/9);
-    }
-    .pokeball-image{
-        height: 100px;
-        top: 24px;
-        right: 0px;
-    }
-    .pokemon-image {
-        width : 200px;
-        height: 200px;
+    #pokemon-image {
+        width: 70%;
+        height: 70%;
+        position: absolute;
+        left: 15%;
+        top: 140px;
     }
 }
