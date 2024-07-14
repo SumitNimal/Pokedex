@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const loadingDiv = document.querySelector('.loading');
     const containerDiv = document.querySelector('.container');
+    const backButton = document.getElementById('back-button');
     const colorArray = {
         normal: '#A8A878', fire: '#F08030', water: '#6890F0', electric: '#F8D030',
         grass: '#78C850', ice: '#98D8D8', fighting: '#C03028', poison: '#A040A0',
@@ -102,7 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('next-navigation').addEventListener('click',()=>{
         if (id < 500) getPokemon(id + 1);
     });
-    
+    backButton.addEventListener('click',() => {
+        window.history.back();
+    });
     getPokemon(id);
 });
 
