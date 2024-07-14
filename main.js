@@ -2,7 +2,6 @@ const URL = 'https://pokeapi.co/api/v2/pokemon?limit=';
 const max_Pokemon = 500;
 let pokemonArray = [];
 const searchBarELement = document.querySelector('.search-bar');
-
 async function fetchAll(){
     let resposnse  = await fetch(`${URL}${max_Pokemon}`);
     let data = await resposnse.json();
@@ -16,16 +15,17 @@ async function fetchAll(){
     });
 }
 
-function searchedPokemonsByName(name){
-    name = name.toLowerCase();
+function searchedPokemonsByName(nameORid){
+    nameORid = nameORid.toLowerCase();
     const pokemonGrid = document.querySelector('.item-box');
     pokemonGrid.innerHTML = '';
     let flag = 0;
     for(let i = 0;i< max_Pokemon ;i++){
-        if(pokemonArray[i].name.startsWith(name)){
+        let pokemonId = i + 1;
+        if(pokemonArray[i].name.startsWith(nameORid) | String(pokemonId).startsWith(nameORid)){
             // pokemonId = i+1
+
             //styling item/pokemon
-            let pokemonId = i + 1;
             if(!flag) flag = 1;
             const Item = document.createElement('div');
             Item.innerHTML = `
