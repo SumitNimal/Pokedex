@@ -5,58 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&display=swap" rel="stylesheet">
     <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" id="theme_specific" href="style_theme_new.css">
 </head>
 
 <body>
     <div class="loading">
         Loading...
     </div>
+    <div class="box">
+        <div class="container" style="display: none;">
+            <div class="head-container">
+                <div class="name-and-back-div">
+                    <div class="back-image"> <!--backButton ki innerHtml-->
+                        <img src="back.svg">
+                    </div>
+                    <div class="name-id">
+                        <p class="pokemon-name"></p>
+                        <p id="pokemon-id"></p>
+                    </div>
+                    <p class="theme">Theme</p>
+                </div>
+                <div class="image-and-navigation-div">
+                    <div class="navigation-button" id="prev-navigation">
+                        <img src="prevPokemon.svg" id="prev-navigation-logo">
+                    </div>
 
-    <div class="container">
-        <div class="head-container">
+                    <div class="pokemon-image-div"> <!-- pura div disable = new/default-->
+                        <img src="" alt="Pokemon-Image" id="pokemon-image" class="pokemon-image-theme-old">
+                    </div>
 
-            <div class="name-and-back-div">
-                <img src="back.svg" class="back-image" id="back-button">
-                <p class="pokemon-name"></p>
-                <p id="pokemon-id"></p>
-            </div>
-            <img src="./Pokemon_Images/1.svg" alt="Pokemon-Image" id="pokemon-image">
-
-            <div class="image-and-navigation-div">
-                <div class="navigation-button" id="prev-navigation">
-                    <img src="prevPokemon.svg">
+                    <div class="navigation-button" id="next-navigation">
+                        <img src="nextPokemon.svg" id="next-navigation-logo">
+                    </div>
                 </div>
 
-                <div class="navigation-button" id="next-navigation">
-                    <img src="nextPokemon.svg">
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="pokemon-details-container">
-            <div class="pokemon-type-container"></div>
-
-            <div class="body-measure-container">
-
-                <div class="body-measure-div">
-                    <img src="weight.svg" class="weight-logo">
-                    <p class="body-measure-text" id="weight-text"></p>
-                </div>
-                <div class="body-measure-div">
-                    <img src="height.svg" class="height-logo">
-                    <p class="body-measure-text" id="height-text"></p>
-                </div>
+                <img src="" alt="Pokemon-Image" id="pokemon-image" class="pokemon-image-theme-new">
+                <!-- disable = old-->
 
             </div>
 
-            <div class="all-stats-container">
+
+            <div class="pokemon-details-container">
+                <div class="pokemon-type-container"></div>
+
+                <div class="body-measure-container">
+
+                    <div class="body-measure-div">
+                        <img src="weight.svg" class="weight-logo"> <!--disable for old-->
+                        <p class="body-measure-text" id="weight-text"></p>
+                    </div>
+                    <div class="body-measure-div">
+                        <img src="height.svg" class="height-logo"> <!--disable for old-->
+                        <p class="body-measure-text" id="height-text"></p>
+                    </div>
+
+                </div>
+
+                <div class="all-stats-container">
+                </div>
             </div>
         </div>
     </div>

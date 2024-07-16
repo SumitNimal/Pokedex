@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const loadingDiv = document.querySelector('.loading');
     const containerDiv = document.querySelector('.container');
-    const backButton = document.getElementById('back-button');
+    // const backButton = document.getElementById('back-button');
     const colorArray = {
         normal: '#A8A878', fire: '#F08030', water: '#6890F0', electric: '#F8D030',
         grass: '#78C850', ice: '#98D8D8', fighting: '#C03028', poison: '#A040A0',
@@ -13,6 +13,22 @@ document.addEventListener('DOMContentLoaded', () => {
         steel: '#B8B8D0', fairy: '#EE99AC',
     };
     const statNameList = ['HP','ATK','DEF','SATK','SDEF','SPD'];
+    const prevPokemonButton = document.getElementById('prev-navigation');
+    const nextPokemonButton = document.getElementById('next-navigation');
+    const backButton = document.querySelector('.back-image');
+    const heightLogo = document.querySelector('.height-logo');
+    const weightLogo = document.querySelector('.weight-logo');
+    const imageDivForOld = document.querySelector('.pokemon-image-div');
+    const pokemonNameElement = document.querySelector('.pokemon-name');
+    const pokemonImageElementOld = document.querySelector('.pokemon-image-theme-old');
+    const pokemonImageElementNew = document.querySelector('.pokemon-image-theme-new');
+    const pokemonIdElement = document.getElementById('pokemon-id');
+    const pokemonTypesElement = document.querySelector('.pokemon-type-container');
+    const statParentElement = document.querySelector('.all-stats-container');
+    const boxElementOld = document.querySelector('.box');
+    const themeButton = document.querySelector('.theme');
+
+    let themeApplied = JSON.parse(localStorage.getItem('themeapplied')) || 1;
     
     async function fetchPokemon(id){
         try{
@@ -34,18 +50,23 @@ document.addEventListener('DOMContentLoaded', () => {
     function firstLetterCapital(name) {
         return name.charAt(0).toUpperCase() + name.slice(1);
     }
-    function displayPokemon(id,data){
-        
-        const pokemonNameElement = document.querySelector('.pokemon-name');
-        const pokemonImageElement = document.getElementById('pokemon-image');
-        const pokemonIdElement = document.getElementById('pokemon-id');
-        const pokemonTypesElement = document.querySelector('.pokemon-type-container');
-        const statParentElement = document.querySelector('.all-stats-container');
-        const pokemonColor =  colorArray[data.types[0].type.name];
+
     
+    function disableLogo(){
+        weightLogo.style.display = 'none';
+        heightLogo.style.display = 'none';
+    }
+
+    function displayPokemon(id,data){
+        const pokemonColor =  colorArray[data.types[0].type.name];
+
+        if(themeApplied === 1){
+            imageDivForOld.style.display = 'none';
+        }
         //image , name and id 
         pokemonNameElement.innerText = firstLetterCapital(data.name);
-        pokemonImageElement.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
+        pokemonImageElementOld.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
+        pokemonImageElementNew.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
         pokemonIdElement.innerText = `#${id}`;
     
         //types
@@ -54,14 +75,34 @@ document.addEventListener('DOMContentLoaded', () => {
             let typeParaElement = document.createElement('p');
             typeParaElement.innerText = firstLetterCapital(data.types[i].type.name);
             typeParaElement.classList.add('pokemon-type');
+            
+            if(themeApplied === 1)
             typeParaElement.style.backgroundColor = colorArray[data.types[i].type.name];
             pokemonTypesElement.appendChild(typeParaElement);
         }
-        document.querySelector('body').style.backgroundColor = pokemonColor;
+        let H = '';
+        let W = '';
+    // old theme
+        if(themeApplied === 2){
+            disableLogo();
+            pokemonImageElementNew.style.display = 'none';
+            boxElementOld.style.backgroundColor = pokemonColor;
+            document.querySelector('.pokemon-image-div').style.backgroundColor = `${pokemonColor}50`;
+            prevPokemonButton.innerHTML = '<p style="font-size: 20px;">&#60;</p>';
+            nextPokemonButton.innerHTML = '<p style="font-size: 20px;">&#62;</p>';
+            backButton.innerHTML = '<p>&#9664;</p>';
+            H = 'H : ';
+            W = 'W : ';
+        }
+
+
+    //new specific
+    if(themeApplied === 1)
+    document.querySelector('body').style.backgroundColor = pokemonColor;
     
         // body-measure
-        document.querySelector('#weight-text').innerText = `${(data.weight/10).toFixed(1)} KG`;
-        document.querySelector('#height-text').innerText = `${(data.height/10).toFixed(1)} M`;
+        document.querySelector('#weight-text').innerText = `${W}${(data.weight/10).toFixed(1)} KG`;
+        document.querySelector('#height-text').innerText = `${H}${(data.height/10).toFixed(1)} M`;
     
         //stats
         statParentElement.innerHTML = '';
@@ -82,9 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
             statElement.classList.add('single-stat-container');
             statParentElement.appendChild(statElement);
         }
+        if(themeApplied === 2)
+            document.getElementById('theme_specific').setAttribute('href','style_theme_old.css')
+        if(themeApplied === 1)
+            document.getElementById('theme_specific').setAttribute('href','style_theme_new.css')
         loadingDiv.style.display = 'none';
         containerDiv.style.display = 'flex';
-        
     }
     
     function getPokemon(newId){
@@ -96,15 +140,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
     }
-    document.getElementById('prev-navigation').addEventListener('click',()=>{
+    prevPokemonButton.addEventListener('click',()=>{
         if (id > 1) getPokemon(id - 1);
     });
     
-    document.getElementById('next-navigation').addEventListener('click',()=>{
+    nextPokemonButton.addEventListener('click',()=>{
         if (id < 500) getPokemon(id + 1);
     });
     backButton.addEventListener('click',() => {
         window.history.back();
+    });
+    themeButton.addEventListener('click',() => {
+        if(themeApplied === 1)
+            themeApplied = 2;
+        else 
+            themeApplied = 1;
+        localStorage.setItem('themeapplied',JSON.stringify(themeApplied));
+        location.reload();
     });
     getPokemon(id);
 });
