@@ -122,7 +122,7 @@ body{
 }
 
 
-@media  (max-width: 285px){
+@media  (max-width: 301px){
     .item-box{
         grid-template-columns: repeat(1, 150px);
         grid-auto-rows: 150px;
@@ -133,10 +133,10 @@ body{
     }
 }
 
-@media  (max-width: 376px) and (min-width: 285px){
+@media  (max-width: 401px) and (min-width: 301){
     .item-box{
-        grid-template-columns: repeat(2, 120px);
-        grid-auto-rows: 120px;
+        grid-template-columns: repeat(2, 135px);
+        grid-auto-rows: 125px;
         height: calc(100vh-100px);
     }
     
@@ -151,10 +151,10 @@ body{
         width: min(250px,100%);
     }
 }
- @media (max-width: 601px) and (min-width: 376px){
+ @media (max-width: 601px) and (min-width: 401px){
     .item-box{
-        grid-template-columns: repeat(3, 100px);
-        grid-auto-rows: 100px;
+        grid-template-columns: repeat(3, 125px);
+        grid-auto-rows: 125px;
         height: calc(100vh-100px);
     }
     .pokemon-image{
@@ -175,8 +175,8 @@ body{
 
 @media (max-width: 851px) and (min-width: 601px){
     .item-box{
-        grid-template-columns: repeat(4, 125px);
-        grid-auto-rows: 125px;
+        grid-template-columns: repeat(4, 135px);
+        grid-auto-rows: 135px;
         height: calc(100vh-100px);
     }
     .search-bar{
