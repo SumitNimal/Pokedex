@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let id = parseInt(params.get('id'), 10) || 1;
     
     const loadingDiv = document.querySelector('.loading');
-    const containerDiv = document.querySelector('.container');
+    const boxDiv = document.querySelector('.box');
     // const backButton = document.getElementById('back-button');
     const colorArray = {
         normal: '#A8A878', fire: '#F08030', water: '#6890F0', electric: '#F8D030',
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const backButton = document.querySelector('.back-image');
     const heightLogo = document.querySelector('.height-logo');
     const weightLogo = document.querySelector('.weight-logo');
+    const backLogo = document.getElementById('back-logo');
     const imageDivForOld = document.querySelector('.pokemon-image-div');
     const pokemonNameElement = document.querySelector('.pokemon-name');
     const pokemonImageElementOld = document.querySelector('.pokemon-image-theme-old');
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function disableLogo(){
         weightLogo.style.display = 'none';
         heightLogo.style.display = 'none';
+        backLogo.style.display = 'none';
     }
 
     function displayPokemon(id,data){
@@ -128,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(themeApplied === 1)
             document.getElementById('theme_specific').setAttribute('href','style_theme_new.css')
         loadingDiv.style.display = 'none';
-        containerDiv.style.display = 'flex';
+        boxDiv.style.display = 'flex';
     }
     
     function getPokemon(newId){
@@ -151,12 +153,17 @@ document.addEventListener('DOMContentLoaded', () => {
         window.history.back();
     });
     themeButton.addEventListener('click',() => {
+        loadingDiv.innerHTML = 'Applying Theme!';
+        loadingDiv.style.display = 'inline-block';
+        boxDiv.style.display = 'none';
         if(themeApplied === 1)
             themeApplied = 2;
         else 
             themeApplied = 1;
-        localStorage.setItem('themeapplied',JSON.stringify(themeApplied));
-        location.reload();
+        setTimeout(()=>{
+            localStorage.setItem('themeapplied',JSON.stringify(themeApplied));
+            location.reload()
+        },500);
     });
     getPokemon(id);
 });
