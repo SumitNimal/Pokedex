@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const loadingDiv = document.querySelector('.loading');
     const boxDiv = document.querySelector('.box');
-    document.querySelector('body').style.backgroundColor = 'white';
     // const backButton = document.getElementById('back-button');
     const colorArray = {
         normal: '#A8A878', fire: '#F08030', water: '#6890F0', electric: '#F8D030',
@@ -65,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if(themeApplied === 1){
             imageDivForOld.style.display = 'none';
+            document.getElementById('theme_specific').setAttribute('href','style_theme_new.css')
         }
         //image , name and id 
         pokemonNameElement.innerText = firstLetterCapital(data.name);
@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let W = '';
     // old theme
         if(themeApplied === 2){
+            document.getElementById('theme_specific').setAttribute('href','style_theme_old.css');
             disableLogo();
             pokemonImageElementNew.style.display = 'none';
             boxElementOld.style.backgroundColor = pokemonColor;
@@ -126,10 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
             statElement.classList.add('single-stat-container');
             statParentElement.appendChild(statElement);
         }
-        if(themeApplied === 2)
-            document.getElementById('theme_specific').setAttribute('href','style_theme_old.css')
-        if(themeApplied === 1)
-            document.getElementById('theme_specific').setAttribute('href','style_theme_new.css')
+        // if(themeApplied === 2)
+        //     document.getElementById('theme_specific').setAttribute('href','style_theme_old.css')
+        // if(themeApplied === 1)
+        //     document.getElementById('theme_specific').setAttribute('href','style_theme_new.css')
         loadingDiv.style.display = 'none';
         boxDiv.style.display = 'flex';
     }
