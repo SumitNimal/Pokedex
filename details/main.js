@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const loadingDiv = document.querySelector('.loading');
     const boxDiv = document.querySelector('.box');
+    document.querySelector('body').style.backgroundColor = 'white';
     // const backButton = document.getElementById('back-button');
     const colorArray = {
         normal: '#A8A878', fire: '#F08030', water: '#6890F0', electric: '#F8D030',
