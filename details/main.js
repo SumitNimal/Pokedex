@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     let id = parseInt(params.get('id'), 10) || 1;
-    
     const loadingDiv = document.querySelector('.loading');
     const boxDiv = document.querySelector('.box');
     // const backButton = document.getElementById('back-button');
@@ -39,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 loadingDiv.innerHTML = 'OOPS !';
             }
             let data = await response.json();
-            console.log(data);
             return data;
         }
         catch(err){
@@ -61,10 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayPokemon(id,data){
         const pokemonColor =  colorArray[data.types[0].type.name];
-
         if(themeApplied === 1){
             imageDivForOld.style.display = 'none';
-            document.getElementById('theme_specific').setAttribute('href','style_theme_new.css')
+            document.getElementById('theme_specific').setAttribute('href','style_theme_new.css');
         }
         //image , name and id 
         pokemonNameElement.innerText = firstLetterCapital(data.name);
@@ -87,16 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
         let W = '';
     // old theme
         if(themeApplied === 2){
-            document.getElementById('theme_specific').setAttribute('href','style_theme_old.css');
             disableLogo();
+            document.getElementById('theme_specific').setAttribute('href','style_theme_old.css')
             pokemonImageElementNew.style.display = 'none';
-            boxElementOld.style.backgroundColor = pokemonColor;
             document.querySelector('.pokemon-image-div').style.backgroundColor = `${pokemonColor}50`;
             prevPokemonButton.innerHTML = '<p style="font-size: 20px;">&#60;</p>';
             nextPokemonButton.innerHTML = '<p style="font-size: 20px;">&#62;</p>';
             backButton.innerHTML = '<p>&#9664;</p>';
             H = 'H : ';
             W = 'W : ';
+            boxElementOld.style.backgroundColor = pokemonColor;
         }
 
 
@@ -127,10 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
             statElement.classList.add('single-stat-container');
             statParentElement.appendChild(statElement);
         }
-        // if(themeApplied === 2)
-        //     document.getElementById('theme_specific').setAttribute('href','style_theme_old.css')
-        // if(themeApplied === 1)
-        //     document.getElementById('theme_specific').setAttribute('href','style_theme_new.css')
         loadingDiv.style.display = 'none';
         boxDiv.style.display = 'flex';
     }
@@ -162,11 +155,8 @@ document.addEventListener('DOMContentLoaded', () => {
             themeApplied = 2;
         else 
             themeApplied = 1;
-        setTimeout(()=>{
-            localStorage.setItem('themeapplied',JSON.stringify(themeApplied));
-            location.reload()
-        },500);
+        localStorage.setItem('themeapplied',JSON.stringify(themeApplied));
+        location.reload()
     });
     getPokemon(id);
 });
-
