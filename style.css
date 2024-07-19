@@ -133,9 +133,9 @@ body{
     }
 }
 
-@media  (max-width: 401px) and (min-width: 301){
+@media  (max-width: 401px) and (min-width: 301px){
     .item-box{
-        grid-template-columns: repeat(2, 135px);
+        grid-template-columns: repeat(2, 125px);
         grid-auto-rows: 125px;
         height: calc(100vh-100px);
     }
