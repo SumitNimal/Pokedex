@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const statParentElement = document.querySelector('.all-stats-container');
     const boxElementOld = document.querySelector('.box');
     const themeButton = document.querySelector('.theme');
+    const prevImage = document.getElementById('prev-navigation-image-id');
+    const nextImage = document.getElementById('next-navigation-image-id');
 
     let themeApplied = JSON.parse(localStorage.getItem('themeapplied')) || 1;
     
@@ -98,8 +100,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //new specific
-    if(themeApplied === 1)
-    document.querySelector('body').style.backgroundColor = pokemonColor;
+    if(themeApplied === 1){
+        prevImage.style.display = 'none';
+        nextImage.style.display = 'none';
+        document.querySelector('body').style.backgroundColor = pokemonColor;
+        if(id>1 && id<=500){
+            prevImage.style.display = 'inline-block';
+            prevImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id-1}.svg`;
+        }
+        if(id<500 && id>=1){
+            nextImage.style.display = 'inline-block';
+            nextImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id+1}.svg`;
+        }
+    }
     
         // body-measure
         document.querySelector('#weight-text').innerText = `${W}${(data.weight/10).toFixed(1)} KG`;
