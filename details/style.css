@@ -32,7 +32,7 @@ body {
 .theme{
     padding: 2px 6px;
     border-radius: 10px;
-    transition: all 0.3s;
+    transition: all 0.2s;
     cursor: pointer;
 }
 
@@ -51,8 +51,8 @@ body {
     /* new */
 }
 #pokemon-image {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     /* new */
 }
 
@@ -83,15 +83,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 30px;
+    border-radius: 24px;
+    transition: all 0.2s;
     cursor: pointer;
-    transition: all 0.3s;
     /* new */
 }
 
 /* new */
-
-
 .pokemon-details-container {
     display: flex;
     flex-direction: column;
@@ -162,17 +160,4 @@ body {
     width: 10%;
     display: flex;
     justify-content: flex-end;
-}
-
-@media (max-width: 425px) {
-    .container{
-        width: 90%;
-    }
-    #pokemon-image {
-        width: 70%;
-        height: 70%;
-        position: absolute;
-        left: 15%;
-        top: 140px;
-    }
 }
