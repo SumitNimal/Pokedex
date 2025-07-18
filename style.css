@@ -194,21 +194,6 @@ body{
     }
 }
 
-@media (max-width: 1024px) and (min-width: 851px){
-    .item-box{
-        grid-template-columns: repeat(5, 125px);
-        grid-auto-rows: 125px;
-        height: calc(100vh-100px);
-    }
-    .pokemon-image{
-        height: 64px;
-        width: 64px;
-    }
-    .search-bar{
-        width: 600px;
-    }
-}
-
 @media (min-width: 1024px) and (max-width : 1441px){
     .item-box{
         grid-template-columns: repeat(6, 150px);
